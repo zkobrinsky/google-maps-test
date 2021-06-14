@@ -23,6 +23,12 @@ export default function Map() {
     console.log(value);
   };
 
+  const apiIsLoaded = (map, maps) => {
+    if (map) {
+      //   debugger;
+    }
+  };
+
   return (
     <div className="map-container" style={{ height: "100vh", width: "100%" }}>
       {location ? (
@@ -30,13 +36,16 @@ export default function Map() {
           defaultCenter={location}
           defaultZoom={defaultProps.zoom}
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
         >
-          <div lat={location.lat} lng={location.lng}>
+          <div lat={location.lat} lng={location.lng} className="user-location">
             <Icon text={"Zach"}></Icon>
           </div>
 
           {/* map through available spots from API */}
           <div
+            className="parking-spot"
             lat={40.834}
             lng={-73.9}
             onClick={getDirections({ lat: 40.834, lng: -73.9 })}
