@@ -22,7 +22,7 @@ export default function Map() {
 
   const getDirections = value => () => {
     console.log(value);
-    console.log(myMap);
+    // console.log(myMap);
   };
 
   const apiIsLoaded = (map, maps) => {
