@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import Icon from "./Icon";
+import UserIcon from "./UserIcon";
 
 export default function Map() {
   const defaultProps = {
@@ -52,7 +53,7 @@ export default function Map() {
           onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
         >
           <div lat={location.lat} lng={location.lng} className="user-location">
-            <Icon text={"Zach"}></Icon>
+            <UserIcon text={"Zach"}></UserIcon>
           </div>
 
           {/* map through available spots from API */}

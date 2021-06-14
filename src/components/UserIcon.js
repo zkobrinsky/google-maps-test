@@ -1,11 +1,11 @@
-export default function Icon({ text }) {
+export default function UserIcon({ text }) {
   return (
     <div
       style={{
         color: "white",
         width: "3vh",
         height: "3vh",
-        background: "green",
+        background: "black",
         padding: "10px 10px",
         display: "inline-flex",
         textAlign: "center",
