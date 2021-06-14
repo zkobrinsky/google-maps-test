@@ -9,6 +9,7 @@ export default function Map() {
   };
 
   const [location, setLocation] = useState(null);
+  const [myMap, setMyMap] = useState(null);
 
   useEffect(() => {
     navigator.geolocation.watchPosition(function (position) {
@@ -21,12 +22,21 @@ export default function Map() {
 
   const getDirections = value => () => {
     console.log(value);
+    console.log(myMap);
   };
 
   const apiIsLoaded = (map, maps) => {
     if (map) {
-      //   debugger;
+      setMyMap(map);
     }
+  };
+
+  const onChildMouseEnter = () => {
+    // console.log("mouse entered");
+  };
+
+  const onChildMouseLeave = () => {
+    // console.log("mouse left");
   };
 
   return (
@@ -35,6 +45,8 @@ export default function Map() {
         <GoogleMapReact
           defaultCenter={location}
           defaultZoom={defaultProps.zoom}
+          onChildMouseEnter={onChildMouseEnter}
+          onChildMouseLeave={onChildMouseLeave}
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
